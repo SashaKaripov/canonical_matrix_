@@ -61,6 +61,8 @@ std::pair<Eigen::SparseMatrix<GF2>, Eigen::SparseMatrix<GF2>> H_to_X(std::ifstre
 Eigen::SparseMatrix<GF2> checking_syndrome(Eigen::SparseMatrix<GF2>& X, std::ifstream& file_matrix_H, int H_rows, int H_cols)
 {
     std::string line;
+    file_matrix_H.clear();
+    file_matrix_H.seekg(0);
     Eigen::SparseMatrix<GF2> H(H_rows, H_cols);
     int H_col{};
     for (int i{}; i < H_rows; i++) {
