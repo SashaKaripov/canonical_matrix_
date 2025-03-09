@@ -3,21 +3,21 @@
 
 cmake_minimum_required(VERSION 3.5)
 
-if(EXISTS "D:/ldpc/build/_deps/doctest-subbuild/doctest-populate-prefix/src/doctest-populate-stamp/doctest-populate-gitclone-lastrun.txt" AND EXISTS "D:/ldpc/build/_deps/doctest-subbuild/doctest-populate-prefix/src/doctest-populate-stamp/doctest-populate-gitinfo.txt" AND
-  "D:/ldpc/build/_deps/doctest-subbuild/doctest-populate-prefix/src/doctest-populate-stamp/doctest-populate-gitclone-lastrun.txt" IS_NEWER_THAN "D:/ldpc/build/_deps/doctest-subbuild/doctest-populate-prefix/src/doctest-populate-stamp/doctest-populate-gitinfo.txt")
+if(EXISTS "D:/canonical_matrix/build/_deps/doctest-subbuild/doctest-populate-prefix/src/doctest-populate-stamp/doctest-populate-gitclone-lastrun.txt" AND EXISTS "D:/canonical_matrix/build/_deps/doctest-subbuild/doctest-populate-prefix/src/doctest-populate-stamp/doctest-populate-gitinfo.txt" AND
+  "D:/canonical_matrix/build/_deps/doctest-subbuild/doctest-populate-prefix/src/doctest-populate-stamp/doctest-populate-gitclone-lastrun.txt" IS_NEWER_THAN "D:/canonical_matrix/build/_deps/doctest-subbuild/doctest-populate-prefix/src/doctest-populate-stamp/doctest-populate-gitinfo.txt")
   message(STATUS
     "Avoiding repeated git clone, stamp file is up to date: "
-    "'D:/ldpc/build/_deps/doctest-subbuild/doctest-populate-prefix/src/doctest-populate-stamp/doctest-populate-gitclone-lastrun.txt'"
+    "'D:/canonical_matrix/build/_deps/doctest-subbuild/doctest-populate-prefix/src/doctest-populate-stamp/doctest-populate-gitclone-lastrun.txt'"
   )
   return()
 endif()
 
 execute_process(
-  COMMAND ${CMAKE_COMMAND} -E rm -rf "D:/ldpc/build/_deps/doctest-src"
+  COMMAND ${CMAKE_COMMAND} -E rm -rf "D:/canonical_matrix/build/_deps/doctest-src"
   RESULT_VARIABLE error_code
 )
 if(error_code)
-  message(FATAL_ERROR "Failed to remove directory: 'D:/ldpc/build/_deps/doctest-src'")
+  message(FATAL_ERROR "Failed to remove directory: 'D:/canonical_matrix/build/_deps/doctest-src'")
 endif()
 
 # try the clone 3 times in case there is an odd git clone issue
@@ -27,7 +27,7 @@ while(error_code AND number_of_tries LESS 3)
   execute_process(
     COMMAND "D:/Git/cmd/git.exe"
             clone --no-checkout --config "advice.detachedHead=false" "https://github.com/doctest/doctest.git" "doctest-src"
-    WORKING_DIRECTORY "D:/ldpc/build/_deps"
+    WORKING_DIRECTORY "D:/canonical_matrix/build/_deps"
     RESULT_VARIABLE error_code
   )
   math(EXPR number_of_tries "${number_of_tries} + 1")
@@ -42,7 +42,7 @@ endif()
 execute_process(
   COMMAND "D:/Git/cmd/git.exe"
           checkout "origin/master" --
-  WORKING_DIRECTORY "D:/ldpc/build/_deps/doctest-src"
+  WORKING_DIRECTORY "D:/canonical_matrix/build/_deps/doctest-src"
   RESULT_VARIABLE error_code
 )
 if(error_code)
@@ -54,20 +54,20 @@ if(init_submodules)
   execute_process(
     COMMAND "D:/Git/cmd/git.exe" 
             submodule update --recursive --init 
-    WORKING_DIRECTORY "D:/ldpc/build/_deps/doctest-src"
+    WORKING_DIRECTORY "D:/canonical_matrix/build/_deps/doctest-src"
     RESULT_VARIABLE error_code
   )
 endif()
 if(error_code)
-  message(FATAL_ERROR "Failed to update submodules in: 'D:/ldpc/build/_deps/doctest-src'")
+  message(FATAL_ERROR "Failed to update submodules in: 'D:/canonical_matrix/build/_deps/doctest-src'")
 endif()
 
 # Complete success, update the script-last-run stamp file:
 #
 execute_process(
-  COMMAND ${CMAKE_COMMAND} -E copy "D:/ldpc/build/_deps/doctest-subbuild/doctest-populate-prefix/src/doctest-populate-stamp/doctest-populate-gitinfo.txt" "D:/ldpc/build/_deps/doctest-subbuild/doctest-populate-prefix/src/doctest-populate-stamp/doctest-populate-gitclone-lastrun.txt"
+  COMMAND ${CMAKE_COMMAND} -E copy "D:/canonical_matrix/build/_deps/doctest-subbuild/doctest-populate-prefix/src/doctest-populate-stamp/doctest-populate-gitinfo.txt" "D:/canonical_matrix/build/_deps/doctest-subbuild/doctest-populate-prefix/src/doctest-populate-stamp/doctest-populate-gitclone-lastrun.txt"
   RESULT_VARIABLE error_code
 )
 if(error_code)
-  message(FATAL_ERROR "Failed to copy script-last-run stamp file: 'D:/ldpc/build/_deps/doctest-subbuild/doctest-populate-prefix/src/doctest-populate-stamp/doctest-populate-gitclone-lastrun.txt'")
+  message(FATAL_ERROR "Failed to copy script-last-run stamp file: 'D:/canonical_matrix/build/_deps/doctest-subbuild/doctest-populate-prefix/src/doctest-populate-stamp/doctest-populate-gitclone-lastrun.txt'")
 endif()

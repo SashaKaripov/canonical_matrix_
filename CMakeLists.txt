@@ -31,7 +31,13 @@ configure_file(
     COPYONLY
 )
 
-add_executable(main ldpc.cpp GF2.hpp functions.h)
+configure_file(
+    ${CMAKE_SOURCE_DIR}/bad_matrix_data.txt
+    ${CMAKE_BINARY_DIR}/bad_matrix_data.txt
+    COPYONLY
+)
+
+add_executable(main main.cpp GF2.hpp functions.h)
 add_executable(tests tests.cpp functions.h)
 
 target_include_directories(main PRIVATE ${eigen_SOURCE_DIR})

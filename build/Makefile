@@ -56,10 +56,10 @@ RM = "C:\Program Files\CMake\bin\cmake.exe" -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = D:\ldpc
+CMAKE_SOURCE_DIR = D:\canonical_matrix
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = D:\ldpc\build
+CMAKE_BINARY_DIR = D:\canonical_matrix\build
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -131,9 +131,9 @@ install/strip/fast: preinstall/fast
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start D:\ldpc\build\CMakeFiles D:\ldpc\build\\CMakeFiles\progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start D:\canonical_matrix\build\CMakeFiles D:\canonical_matrix\build\\CMakeFiles\progress.marks
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start D:\ldpc\build\CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start D:\canonical_matrix\build\CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -199,29 +199,29 @@ doctest_with_main/fast:
 	$(MAKE) $(MAKESILENT) -f _deps\doctest-build\CMakeFiles\doctest_with_main.dir\build.make _deps/doctest-build/CMakeFiles/doctest_with_main.dir/build
 .PHONY : doctest_with_main/fast
 
-ldpc.obj: ldpc.cpp.obj
-.PHONY : ldpc.obj
+main.obj: main.cpp.obj
+.PHONY : main.obj
 
 # target to build an object file
-ldpc.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\main.dir\build.make CMakeFiles/main.dir/ldpc.cpp.obj
-.PHONY : ldpc.cpp.obj
+main.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\main.dir\build.make CMakeFiles/main.dir/main.cpp.obj
+.PHONY : main.cpp.obj
 
-ldpc.i: ldpc.cpp.i
-.PHONY : ldpc.i
+main.i: main.cpp.i
+.PHONY : main.i
 
 # target to preprocess a source file
-ldpc.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\main.dir\build.make CMakeFiles/main.dir/ldpc.cpp.i
-.PHONY : ldpc.cpp.i
+main.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\main.dir\build.make CMakeFiles/main.dir/main.cpp.i
+.PHONY : main.cpp.i
 
-ldpc.s: ldpc.cpp.s
-.PHONY : ldpc.s
+main.s: main.cpp.s
+.PHONY : main.s
 
 # target to generate assembly for a file
-ldpc.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\main.dir\build.make CMakeFiles/main.dir/ldpc.cpp.s
-.PHONY : ldpc.cpp.s
+main.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\main.dir\build.make CMakeFiles/main.dir/main.cpp.s
+.PHONY : main.cpp.s
 
 tests.obj: tests.cpp.obj
 .PHONY : tests.obj
@@ -262,9 +262,9 @@ help:
 	@echo ... doctest_with_main
 	@echo ... main
 	@echo ... tests
-	@echo ... ldpc.obj
-	@echo ... ldpc.i
-	@echo ... ldpc.s
+	@echo ... main.obj
+	@echo ... main.i
+	@echo ... main.s
 	@echo ... tests.obj
 	@echo ... tests.i
 	@echo ... tests.s

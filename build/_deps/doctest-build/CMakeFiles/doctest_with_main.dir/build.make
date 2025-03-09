@@ -52,10 +52,10 @@ RM = "C:\Program Files\CMake\bin\cmake.exe" -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = D:\ldpc
+CMAKE_SOURCE_DIR = D:\canonical_matrix
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = D:\ldpc\build
+CMAKE_BINARY_DIR = D:\canonical_matrix\build
 
 # Include any dependencies generated for this target.
 include _deps/doctest-build/CMakeFiles/doctest_with_main.dir/depend.make
@@ -72,16 +72,16 @@ _deps/doctest-build/CMakeFiles/doctest_with_main.dir/doctest/parts/doctest.cpp.o
 _deps/doctest-build/CMakeFiles/doctest_with_main.dir/doctest/parts/doctest.cpp.obj: _deps/doctest-build/CMakeFiles/doctest_with_main.dir/includes_CXX.rsp
 _deps/doctest-build/CMakeFiles/doctest_with_main.dir/doctest/parts/doctest.cpp.obj: _deps/doctest-src/doctest/parts/doctest.cpp
 _deps/doctest-build/CMakeFiles/doctest_with_main.dir/doctest/parts/doctest.cpp.obj: _deps/doctest-build/CMakeFiles/doctest_with_main.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=D:\ldpc\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object _deps/doctest-build/CMakeFiles/doctest_with_main.dir/doctest/parts/doctest.cpp.obj"
-	cd /d D:\ldpc\build\_deps\doctest-build && C:\PROGRA~1\mingw64\bin\C__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT _deps/doctest-build/CMakeFiles/doctest_with_main.dir/doctest/parts/doctest.cpp.obj -MF CMakeFiles\doctest_with_main.dir\doctest\parts\doctest.cpp.obj.d -o CMakeFiles\doctest_with_main.dir\doctest\parts\doctest.cpp.obj -c D:\ldpc\build\_deps\doctest-src\doctest\parts\doctest.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=D:\canonical_matrix\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object _deps/doctest-build/CMakeFiles/doctest_with_main.dir/doctest/parts/doctest.cpp.obj"
+	cd /d D:\canonical_matrix\build\_deps\doctest-build && C:\PROGRA~1\mingw64\bin\C__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT _deps/doctest-build/CMakeFiles/doctest_with_main.dir/doctest/parts/doctest.cpp.obj -MF CMakeFiles\doctest_with_main.dir\doctest\parts\doctest.cpp.obj.d -o CMakeFiles\doctest_with_main.dir\doctest\parts\doctest.cpp.obj -c D:\canonical_matrix\build\_deps\doctest-src\doctest\parts\doctest.cpp
 
 _deps/doctest-build/CMakeFiles/doctest_with_main.dir/doctest/parts/doctest.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/doctest_with_main.dir/doctest/parts/doctest.cpp.i"
-	cd /d D:\ldpc\build\_deps\doctest-build && C:\PROGRA~1\mingw64\bin\C__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E D:\ldpc\build\_deps\doctest-src\doctest\parts\doctest.cpp > CMakeFiles\doctest_with_main.dir\doctest\parts\doctest.cpp.i
+	cd /d D:\canonical_matrix\build\_deps\doctest-build && C:\PROGRA~1\mingw64\bin\C__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E D:\canonical_matrix\build\_deps\doctest-src\doctest\parts\doctest.cpp > CMakeFiles\doctest_with_main.dir\doctest\parts\doctest.cpp.i
 
 _deps/doctest-build/CMakeFiles/doctest_with_main.dir/doctest/parts/doctest.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/doctest_with_main.dir/doctest/parts/doctest.cpp.s"
-	cd /d D:\ldpc\build\_deps\doctest-build && C:\PROGRA~1\mingw64\bin\C__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S D:\ldpc\build\_deps\doctest-src\doctest\parts\doctest.cpp -o CMakeFiles\doctest_with_main.dir\doctest\parts\doctest.cpp.s
+	cd /d D:\canonical_matrix\build\_deps\doctest-build && C:\PROGRA~1\mingw64\bin\C__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S D:\canonical_matrix\build\_deps\doctest-src\doctest\parts\doctest.cpp -o CMakeFiles\doctest_with_main.dir\doctest\parts\doctest.cpp.s
 
 # Object files for target doctest_with_main
 doctest_with_main_OBJECTS = \
@@ -93,19 +93,19 @@ doctest_with_main_EXTERNAL_OBJECTS =
 _deps/doctest-build/libdoctest_with_main.a: _deps/doctest-build/CMakeFiles/doctest_with_main.dir/doctest/parts/doctest.cpp.obj
 _deps/doctest-build/libdoctest_with_main.a: _deps/doctest-build/CMakeFiles/doctest_with_main.dir/build.make
 _deps/doctest-build/libdoctest_with_main.a: _deps/doctest-build/CMakeFiles/doctest_with_main.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=D:\ldpc\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX static library libdoctest_with_main.a"
-	cd /d D:\ldpc\build\_deps\doctest-build && $(CMAKE_COMMAND) -P CMakeFiles\doctest_with_main.dir\cmake_clean_target.cmake
-	cd /d D:\ldpc\build\_deps\doctest-build && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles\doctest_with_main.dir\link.txt --verbose=$(VERBOSE)
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=D:\canonical_matrix\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX static library libdoctest_with_main.a"
+	cd /d D:\canonical_matrix\build\_deps\doctest-build && $(CMAKE_COMMAND) -P CMakeFiles\doctest_with_main.dir\cmake_clean_target.cmake
+	cd /d D:\canonical_matrix\build\_deps\doctest-build && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles\doctest_with_main.dir\link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
 _deps/doctest-build/CMakeFiles/doctest_with_main.dir/build: _deps/doctest-build/libdoctest_with_main.a
 .PHONY : _deps/doctest-build/CMakeFiles/doctest_with_main.dir/build
 
 _deps/doctest-build/CMakeFiles/doctest_with_main.dir/clean:
-	cd /d D:\ldpc\build\_deps\doctest-build && $(CMAKE_COMMAND) -P CMakeFiles\doctest_with_main.dir\cmake_clean.cmake
+	cd /d D:\canonical_matrix\build\_deps\doctest-build && $(CMAKE_COMMAND) -P CMakeFiles\doctest_with_main.dir\cmake_clean.cmake
 .PHONY : _deps/doctest-build/CMakeFiles/doctest_with_main.dir/clean
 
 _deps/doctest-build/CMakeFiles/doctest_with_main.dir/depend:
-	$(CMAKE_COMMAND) -E cmake_depends "MinGW Makefiles" D:\ldpc D:\ldpc\build\_deps\doctest-src D:\ldpc\build D:\ldpc\build\_deps\doctest-build D:\ldpc\build\_deps\doctest-build\CMakeFiles\doctest_with_main.dir\DependInfo.cmake "--color=$(COLOR)"
+	$(CMAKE_COMMAND) -E cmake_depends "MinGW Makefiles" D:\canonical_matrix D:\canonical_matrix\build\_deps\doctest-src D:\canonical_matrix\build D:\canonical_matrix\build\_deps\doctest-build D:\canonical_matrix\build\_deps\doctest-build\CMakeFiles\doctest_with_main.dir\DependInfo.cmake "--color=$(COLOR)"
 .PHONY : _deps/doctest-build/CMakeFiles/doctest_with_main.dir/depend
 
