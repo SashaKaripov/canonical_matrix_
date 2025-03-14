@@ -12,6 +12,70 @@ TEST_CASE("Checking exception when matrix isnt identity"){
     CHECK_THROWS_WITH(f("bad_matrix_data.txt", 5, 13), "isnt identity matrix");
 }
 
+TEST_CASE("SimpleMatrix"){
+    Eigen::Matrix<GF2, Eigen::Dynamic, Eigen::Dynamic> mat(3, 3);
+    mat << GF2(1), GF2(1), GF2(1),
+           GF2(0), GF2(1), GF2(0),
+           GF2(0), GF2(0), GF2(1);
+
+    gaussJordanGF2(mat);
+
+    Eigen::Matrix<GF2, Eigen::Dynamic, Eigen::Dynamic> expected(3, 3);
+    expected << GF2(1), GF2(0), GF2(0),
+                GF2(0), GF2(1), GF2(0),
+                GF2(0), GF2(0), GF2(1);
+
+    CHECK(mat == expected);
+}
+
+TEST_CASE("ZeroMatrix") {
+    Eigen::Matrix<GF2, Eigen::Dynamic, Eigen::Dynamic> mat(3, 3);
+    mat << GF2(0), GF2(0), GF2(0),
+           GF2(0), GF2(0), GF2(0),
+           GF2(0), GF2(0), GF2(0);
+
+    gaussJordanGF2(mat);
+
+    Eigen::Matrix<GF2, Eigen::Dynamic, Eigen::Dynamic> expected(3, 3);
+    expected << GF2(0), GF2(0), GF2(0),
+                GF2(0), GF2(0), GF2(0),
+                GF2(0), GF2(0), GF2(0);
+
+    CHECK(mat == expected);
+}
+
+TEST_CASE("RectangularMatrix") {
+    Eigen::Matrix<GF2, Eigen::Dynamic, Eigen::Dynamic> mat(3, 4);
+    mat << GF2(1), GF2(1), GF2(1), GF2(0),
+           GF2(0), GF2(0), GF2(1), GF2(0),
+           GF2(0), GF2(1), GF2(0), GF2(0);
+
+    gaussJordanGF2(mat);
+
+    Eigen::Matrix<GF2, Eigen::Dynamic, Eigen::Dynamic> expected(3, 4);
+    expected << GF2(1), GF2(0), GF2(0), GF2(0),
+                GF2(0), GF2(1), GF2(0), GF2(0),
+                GF2(0), GF2(0), GF2(1), GF2(0);
+
+    CHECK(mat == expected);
+}
+
+TEST_CASE("AlreadyInRungsForm") {
+    Eigen::Matrix<GF2, Eigen::Dynamic, Eigen::Dynamic> mat(3, 3);
+    mat << GF2(1), GF2(0), GF2(0),
+           GF2(0), GF2(1), GF2(0),
+           GF2(0), GF2(0), GF2(1);
+
+    gaussJordanGF2(mat);
+
+    Eigen::Matrix<GF2, Eigen::Dynamic, Eigen::Dynamic> expected(3, 3);
+    expected << GF2(1), GF2(0), GF2(0),
+                GF2(0), GF2(1), GF2(0),
+                GF2(0), GF2(0), GF2(1);
+
+    CHECK(mat == expected);
+}
+
 TEST_CASE("Checking the correct matrix"){
     Eigen::SparseMatrix<GF2> matrix {read_matrix("test_data.txt", 5, 13)};
     std::string H_file("matrix_data.txt");
