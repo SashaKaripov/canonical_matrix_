@@ -4,19 +4,19 @@
 cmake_minimum_required(VERSION 3.5)
 
 file(MAKE_DIRECTORY
-  "D:/canonical_matrix/build/_deps/doctest-src"
-  "D:/canonical_matrix/build/_deps/doctest-build"
-  "D:/canonical_matrix/build/_deps/doctest-subbuild/doctest-populate-prefix"
-  "D:/canonical_matrix/build/_deps/doctest-subbuild/doctest-populate-prefix/tmp"
-  "D:/canonical_matrix/build/_deps/doctest-subbuild/doctest-populate-prefix/src/doctest-populate-stamp"
-  "D:/canonical_matrix/build/_deps/doctest-subbuild/doctest-populate-prefix/src"
-  "D:/canonical_matrix/build/_deps/doctest-subbuild/doctest-populate-prefix/src/doctest-populate-stamp"
+  "D:/canonical_matrix_/build/_deps/doctest-src"
+  "D:/canonical_matrix_/build/_deps/doctest-build"
+  "D:/canonical_matrix_/build/_deps/doctest-subbuild/doctest-populate-prefix"
+  "D:/canonical_matrix_/build/_deps/doctest-subbuild/doctest-populate-prefix/tmp"
+  "D:/canonical_matrix_/build/_deps/doctest-subbuild/doctest-populate-prefix/src/doctest-populate-stamp"
+  "D:/canonical_matrix_/build/_deps/doctest-subbuild/doctest-populate-prefix/src"
+  "D:/canonical_matrix_/build/_deps/doctest-subbuild/doctest-populate-prefix/src/doctest-populate-stamp"
 )
 
 set(configSubDirs )
 foreach(subDir IN LISTS configSubDirs)
-    file(MAKE_DIRECTORY "D:/canonical_matrix/build/_deps/doctest-subbuild/doctest-populate-prefix/src/doctest-populate-stamp/${subDir}")
+    file(MAKE_DIRECTORY "D:/canonical_matrix_/build/_deps/doctest-subbuild/doctest-populate-prefix/src/doctest-populate-stamp/${subDir}")
 endforeach()
 if(cfgdir)
-  file(MAKE_DIRECTORY "D:/canonical_matrix/build/_deps/doctest-subbuild/doctest-populate-prefix/src/doctest-populate-stamp${cfgdir}") # cfgdir has leading slash
+  file(MAKE_DIRECTORY "D:/canonical_matrix_/build/_deps/doctest-subbuild/doctest-populate-prefix/src/doctest-populate-stamp${cfgdir}") # cfgdir has leading slash
 endif()

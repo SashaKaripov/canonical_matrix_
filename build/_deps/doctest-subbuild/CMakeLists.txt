@@ -28,8 +28,8 @@ set_property(GLOBAL PROPERTY _CMAKE_FindGit_GIT_EXECUTABLE_VERSION
 include(ExternalProject)
 ExternalProject_Add(doctest-populate
                      "UPDATE_DISCONNECTED" "False" "GIT_REPOSITORY" "https://github.com/doctest/doctest.git" "EXTERNALPROJECT_INTERNAL_ARGUMENT_SEPARATOR" "GIT_TAG" "origin/master"
-                    SOURCE_DIR          "D:/canonical_matrix/build/_deps/doctest-src"
-                    BINARY_DIR          "D:/canonical_matrix/build/_deps/doctest-build"
+                    SOURCE_DIR          "D:/canonical_matrix_/build/_deps/doctest-src"
+                    BINARY_DIR          "D:/canonical_matrix_/build/_deps/doctest-build"
                     CONFIGURE_COMMAND   ""
                     BUILD_COMMAND       ""
                     INSTALL_COMMAND     ""
