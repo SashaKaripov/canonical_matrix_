@@ -3,7 +3,6 @@
 #include "functions.h"
 #include <string>
 
-
 TEST_CASE("Checking exception when file does not exist"){
     CHECK_THROWS_WITH(f("non_existent_file.txt", 5, 13), "File does not exist");
 }

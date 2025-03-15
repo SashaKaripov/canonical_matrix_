@@ -91,37 +91,46 @@ Eigen::SparseMatrix<GF2> f(const std::string& file_matrix_H, const int& H_rows, 
     Eigen::Matrix<GF2, Eigen::Dynamic, Eigen::Dynamic> right_H = dense_H.block(0, H_cols - H_rows, H_rows, H_rows);
     Eigen::Matrix<GF2, Eigen::Dynamic, Eigen::Dynamic> left_H = dense_H.block(0, 0, H_rows, H_cols - H_rows);
 
-    Eigen::Matrix<GF2, Eigen::Dynamic, Eigen::Dynamic> dense_H_switched(H_rows, H_cols);
+    // Создаем единичную матрицу для проверок
+    Eigen::Matrix<GF2, Eigen::Dynamic, Eigen::Dynamic> identity_matrix(H_rows, H_rows);
+    identity_matrix.setIdentity(); // Заполняем единицами
 
-    // Меняем местами правую и левую часть
-    dense_H_switched.block(0, H_rows, H_rows, H_cols - H_rows) = left_H;
-    dense_H_switched.block(0, 0, H_rows, H_rows) = right_H;
-
-    gaussJordanGF2(dense_H_switched);
-
-    Eigen::Matrix<GF2, Eigen::Dynamic, Eigen::Dynamic> check_zero_matrix = dense_H_switched.block(0, 0, H_rows, H_rows);
-
-    // Создаем единичную матрицу для проверки
-    Eigen::Matrix<GF2, Eigen::Dynamic, Eigen::Dynamic> zero_matrix(H_rows, H_rows);
-    zero_matrix.setIdentity(); // Заполняем единицами
-
-    // Проверяем, слева единичная матрица или нет
-    if (zero_matrix != check_zero_matrix)
+    // Проверяем, нужно ли преобразовывать матрицу или нет
+    if (identity_matrix != right_H)
     {
-        throw std::runtime_error("isnt identity matrix");
+
+
+        Eigen::Matrix<GF2, Eigen::Dynamic, Eigen::Dynamic> dense_H_switched(H_rows, H_cols);
+
+        // Меняем местами правую и левую часть
+        dense_H_switched.block(0, H_rows, H_rows, H_cols - H_rows) = left_H;
+        dense_H_switched.block(0, 0, H_rows, H_rows) = right_H;
+
+        gaussJordanGF2(dense_H_switched);
+
+        Eigen::Matrix<GF2, Eigen::Dynamic, Eigen::Dynamic> check_identity_matrix = dense_H_switched.block(0, 0, H_rows, H_rows);
+
+        // Проверяем, слева единичная матрица или нет
+        if (identity_matrix != check_identity_matrix)
+        {
+            throw std::runtime_error("isnt identity matrix");
+        }
+
+        // Копируем правую и левую часть матрицы H_switched после Гаусса-Джардана
+        Eigen::Matrix<GF2, Eigen::Dynamic, Eigen::Dynamic> left_dense_H_switched = dense_H_switched.block(0, 0, H_rows, H_rows);
+        Eigen::Matrix<GF2, Eigen::Dynamic, Eigen::Dynamic> right_dense_H_switched = dense_H_switched.block(0, H_rows, H_rows, H_cols - H_rows);
+
+        Eigen::Matrix<GF2, Eigen::Dynamic, Eigen::Dynamic> H_result(H_rows, H_cols);
+        H_result.block(0, 0, H_rows, H_cols - H_rows) = right_dense_H_switched;
+        H_result.block(0, H_cols - H_rows, H_rows, H_rows) = left_dense_H_switched;
+
+        Eigen::SparseMatrix<GF2> H_res = H_result.sparseView();
+
+        return H_res;
     }
-
-    // Копируем правую и левую часть матрицы H_switched после Гаусса-Джардана
-    Eigen::Matrix<GF2, Eigen::Dynamic, Eigen::Dynamic> left_dense_H_switched = dense_H_switched.block(0, 0, H_rows, H_rows);
-    Eigen::Matrix<GF2, Eigen::Dynamic, Eigen::Dynamic> right_dense_H_switched = dense_H_switched.block(0, H_rows, H_rows, H_cols - H_rows);
-
-    Eigen::Matrix<GF2, Eigen::Dynamic, Eigen::Dynamic> H_result(H_rows, H_cols);
-    H_result.block(0, 0, H_rows, H_cols - H_rows) = right_dense_H_switched;
-    H_result.block(0, H_cols - H_rows, H_rows, H_rows) = left_dense_H_switched;
-
-    Eigen::SparseMatrix<GF2> H_res = H_result.sparseView();
-
-    return H_res;
+    else{
+        return H;
+    }
 }
 
 #endif FUNCTIONS_H
